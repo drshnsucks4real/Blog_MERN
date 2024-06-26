@@ -1,16 +1,19 @@
 import './App.css';
-import NavBar from './components/common/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Login from './components/auth/Login';
-import Footer from './components/common/footer/Footer';
+import { Switch, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div className="App">
-    <NavBar/>
-    <Login/>
-    <Footer/>
-    </div>
+    <Switch>
+      <Route path="/" component={HomePage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/register" component={RegisterPage} />
+      <Route path="/forgot" component={ForgotPasswordPage} />
+    </Switch>
   );
 }
 

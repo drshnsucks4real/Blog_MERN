@@ -1,0 +1,33 @@
+body{
+    overflow: hidden;
+}
+
+.title{
+    font-family:"Roboto", sans-serif;
+}
+
+.card{
+    color: #8b9289;
+    border: 0;
+    border-radius: 6px;
+}
+
+.card:hover{
+    transform: scale(1.02);
+}
+
+.small{
+    color:#969595;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+}
+
+.content{
+    font-size: 15px;
+    line-height: 23px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

@@ -1,20 +1,24 @@
 import React from 'react'
 import logo from '../../images/writer.png'
 import { MenuDown, PersonFill } from 'react-bootstrap-icons'
+import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const NavBar = () => {
+    const history = useHistory();
+
     return (
         <div style={{ width: '100vw' }}>
             <nav className="navbar navbar-expand-md sticky-top navbar-light bg-light" style={{ height: '70px' }}>
                 <div className="container-fluid">
-                    <span className="p-2 align-items-center">
+                    <Link to="/" className="p-2 align-items-center">
                         <img src={logo} alt="Logo" width="70" height="50" />
-                    </span>
-                    <span className='navbar-brand d-flex align-items-center'
+                    </Link>
+                    <Link to="/" className='navbar-brand d-flex align-items-center'
                         style={{ fontFamily: 'Dancing Script', fontSize: '40px' }}
                     >
                         Blogger's Zone
-                    </span>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -31,24 +35,24 @@ const NavBar = () => {
                     <div className="collapse navbar-collapse bg-light" id="navBarNav">
                         <ul className='navbar-nav ml-auto justify-content-start' style={{ fontSize: "16px" }}>
                             <li className='navbar-brand'>
-                                <span className='nav-link'>
+                                <Link to="/" className='nav-link'>
                                     Home
-                                </span>
+                                </Link>
                             </li>
                             <li className='navbar-brand'>
-                                <span className='nav-link'>
+                                <Link to="/blogs" className='nav-link'>
                                     Blogs
-                                </span>
+                                </Link>
                             </li>
                             <li className='navbar-brand'>
-                                <span className='nav-link'>
+                                <Link to="/about" className='nav-link'>
                                     About
-                                </span>
+                                </Link>
                             </li>
                             <li className='navbar-brand'>
-                                <span className='nav-link'>
+                                <Link to="/contact" className='nav-link'>
                                     Contact
-                                </span>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -57,15 +61,17 @@ const NavBar = () => {
 
                         <ul className="navbar-nav ml-auto" style={{ fontSize: '16px' }}>
                             <li className='navbar-brand'>
-                                <button className="btn btn-light">
+                                <button 
+                                onClick={() => history.push("/profile")}
+                                className="btn btn-light">
                                     <PersonFill fontSize="25" className='mr-2' />
                                     My Profile
                                 </button>
                             </li>
 
                             <li className='navbar-brand'>
-                                <button className="btn btn-light">
-                                    Sign in
+                                <button onClick={()=> history.push("/login")} className="btn btn-light">
+                                    Log in
                                 </button>
                             </li>
                         </ul>

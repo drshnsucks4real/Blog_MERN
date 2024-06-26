@@ -1,9 +1,8 @@
 import React from 'react'
 import logo from '../../images/writer.png'
-import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-const Login = () => {
+const ForgotPassword = () => {
     return (
         <div className='container'>
             <div className="row">
@@ -33,38 +32,27 @@ const Login = () => {
                                     />
                                     <label htmlFor="floatingInputEmail">Email Address</label>
                                 </div>
-                                <div className="form-floating mb-3">
-                                    <input
-                                        type="password"
-                                        className='form-control'
-                                        id='floatingInputPassword'
-                                        placeholder='Password'
-                                        style={{
-                                            borderStyle: 'none',
-                                            borderRadius: '0px',
-                                            borderBottom: '1px solid grey'
-                                        }}
-                                    />
-                                    <label htmlFor="floatingInputPassword">Password</label>
-                                </div>
+
 
                                 <div className="d-grid mb-2">
                                     <button
-                                        className='btn btn-lg btn-secondary btn-login fw-bold text-uppercase'
+                                        className='btn btn-lg btn-secondary btn-ForgotPassword fw-bold text-uppercase'
                                         type="submit"
                                         style={{ fontFamily: 'Dancing Script' }}
                                     >
-                                        Log in
+                                        Reset Password
                                     </button>
                                 </div>
 
-                                <Link to="/register" className='d-block text-center mt-2 small fix'>
-                                    Don't have an account? Register now
+                                <span className='d-block text-center mt-2 small fix'>
+                                    We never share your data
+                                </span>
+
+                                <Link to="/login" className='d-block text-center mt-2 small fix'>
+                                    Login now
                                 </Link>
 
-                                <Link to="/forgot" className='d-block text-center mt-2 small fix'>
-                                    Forgot Password ?
-                                </Link>
+
 
                                 <hr className='my-4' />
                             </form>
@@ -76,4 +64,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default ForgotPassword

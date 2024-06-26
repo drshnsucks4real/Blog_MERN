@@ -1,3 +1,11 @@
-.no-hover:hover{
+.no-hover:hover {
     transform: none;
+}
+
+.fix {
+    text-decoration: none;
+}
+
+.fix:hover {
+    text-decoration: none;
 }
