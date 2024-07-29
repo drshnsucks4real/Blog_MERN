@@ -1,0 +1,11 @@
+.cara-height {
+    width: 100vw;
+    height: 80vh;
+}
+
+.caraText {
+    font-family: 'Arial' ;
+    font-weight: medium;
+    font-size: 40px;
+    color: #03352eb7;
+}

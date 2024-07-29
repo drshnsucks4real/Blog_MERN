@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import logo from '../../images/writer.png'
 import './Login.css';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import { useHistory } from 'react-router';
 
 const Login = () => {
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const { Login, currentUser } = useAuth();
+    const history = useHistory();
+
+    if (currentUser) {
+        history.push('/');
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await Login(emailRef.current.value, passwordRef.current.value);
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
     return (
         <div className='container'>
             <div className="row">
@@ -18,13 +38,14 @@ const Login = () => {
                                     Blogger's Zone
                                 </p>
                             </div>
-                            <form>
+                            <form onSubmit={(e) => handleSubmit(e)}>
                                 <div className="form-floating mb-3">
                                     <input
                                         type="email"
                                         className='form-control'
                                         id='floatingInputEmail'
                                         placeholder='example@gmail.com'
+                                        ref={emailRef}
                                         style={{
                                             borderStyle: 'none',
                                             borderRadius: '0px',
@@ -39,6 +60,7 @@ const Login = () => {
                                         className='form-control'
                                         id='floatingInputPassword'
                                         placeholder='Password'
+                                        ref={passwordRef}
                                         style={{
                                             borderStyle: 'none',
                                             borderRadius: '0px',

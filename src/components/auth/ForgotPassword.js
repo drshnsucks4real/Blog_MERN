@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import logo from '../../images/writer.png'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext';
+import { useHistory } from 'react-router';
 
 const ForgotPassword = () => {
+    const emailRef = useRef();
+    const { ResetPassword, currentUser } = useAuth();
+    const history = useHistory();
+
+    if (currentUser) {
+        history.push('/');
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await ResetPassword(emailRef);
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
     return (
         <div className='container'>
             <div className="row">
@@ -17,13 +36,14 @@ const ForgotPassword = () => {
                                     Blogger's Zone
                                 </p>
                             </div>
-                            <form>
+                            <form onSubmit={(e) => handleSubmit(e)}>
                                 <div className="form-floating mb-3">
                                     <input
                                         type="email"
                                         className='form-control'
                                         id='floatingInputEmail'
                                         placeholder='example@gmail.com'
+                                        ref={emailRef}
                                         style={{
                                             borderStyle: 'none',
                                             borderRadius: '0px',
